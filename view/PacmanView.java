@@ -23,11 +23,10 @@ public class PacmanView {
     final int myRow = 20;
     final int myCol = 20;
     
-    public PacmanView(PacmanController c, PacmanModel m){
+    public PacmanView(PacmanController c){
         img = new HashMap<String, BufferedImage>();
-        fillHashMap();
+        //fillHashMap();
         controller = c;
-        model = m;
         
         window = new JFrame("Pacman");
         window.setBounds(100, 100, 480, 480); //same dimensions as panel in level editor
@@ -56,10 +55,9 @@ public class PacmanView {
         }
         
         public void drawCellContents(Graphics g){         
-g.drawImage(imageLoad("images/pacman.png"), 5 * 20, 5 * 20, 20, 20, null);
             for(int i = 0; i < myRow; i++){
                 for(int j = 0; j < myCol; j++){
-                    g.drawImage(getCellContents(i, j), j * 20, 
+                    g.drawImage(controller.getCellContents(i, j), j * 20, 
                             i * 20, 20, 20, null);
                 }
             }
@@ -79,11 +77,12 @@ g.drawImage(imageLoad("images/pacman.png"), 5 * 20, 5 * 20, 20, 20, null);
         drawingPanel.repaint();
     }
     
+    
+    /*
     public BufferedImage getCellContents(int y, int x)  {
         String image = model.getImgTitle(y, x);
         if (image == null)  {
-            System.out.println("PICNAME(" 
-            + y + ", " + x + ") = NULL");
+            //System.out.println("PICNAME(" + y + ", " + x + ") = NULL");
         }
         return imageLoad(image);
     }
@@ -110,4 +109,5 @@ g.drawImage(imageLoad("images/pacman.png"), 5 * 20, 5 * 20, 20, 20, null);
         img.put("dot", imageLoad("images/dot.png"));
         img.put("pacman", imageLoad("images/pacman.png"));
     }
+    */
 }

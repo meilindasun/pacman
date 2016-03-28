@@ -23,9 +23,10 @@ public class PacmanModel {
 		myCol = col;
 		board = new String[myRow][myCol];
 		walkable = new String[myRow][myCol];
-		setAllBlank();
-		printBoard();
+		//setAllBlank();
+		//printBoard();
 		readFile(level);
+		printBoard();
 	}
 	
 	void setAllBlank()  {
@@ -54,8 +55,7 @@ public class PacmanModel {
 	
 	public String getImgTitle(int y, int x)  {
 	    if (canVisit(y, x))  {
-System.out.println("getImgTitle(" + y + ", " + x + ") = " + 
-board[y][x]);
+	    	//System.out.println("getImgTitle(" + y + ", " + x + ") = " + board[y][x]);
 	        return board[y][x];
 	    }
 	    return null;
@@ -71,7 +71,7 @@ board[y][x]);
 			while(input.hasNext()){
 				String curr = input.next();
 				if(curr.charAt(0) == '['){
-					// board[iBoard][jBoard] = curr.substring(1);
+					board[iBoard][jBoard] = curr.substring(1);
 					if(jBoard< myCol - 1) {
 						jBoard++;
 					}else{
