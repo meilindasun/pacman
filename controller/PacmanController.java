@@ -1,12 +1,16 @@
 package controller;
-
-import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import model.PacmanModel;
+import view.PacmanView;
 
 public class PacmanController {
-	
-	//Same method used in minesweeper
-	public BufferedImage getCellContents(int row, int col){
-		return null; //temporary, replace this with actual pictures
-	}
-	
+    PacmanModel myModel;
+    PacmanView myView;
+    String level = "level1";
+    final int row = 20;
+    final int col = 20;
+    public PacmanController()  {
+        myModel = new PacmanModel(level, row, col); 
+        myView = new PacmanView(this, myModel);
+    }
 }

@@ -11,6 +11,7 @@ public class PacmanModel {
 	String blank = "blank.png";
 	String food = "dot.png";
 	String barrier = "barrier.png";
+	String imageDir = "images/";
 	
 	String [][] board;
 	String [][] walkable;
@@ -22,7 +23,42 @@ public class PacmanModel {
 		myCol = col;
 		board = new String[myRow][myCol];
 		walkable = new String[myRow][myCol];
+		setAllBlank();
+		printBoard();
 		readFile(level);
+	}
+	
+	void setAllBlank()  {
+	    for (int i = 0; i < myRow; i++)  {
+	        for (int j = 0; j < myCol; j++)  {
+	            board[i][j] = imageDir + blank;
+	        }
+	    }
+	}
+	
+	void printBoard()  {
+	    for (int i = 0; i < myRow; i++)  {
+	        for (int j = 0; j < myCol; j++)  {
+	            System.out.println(board[i][j] + " ");
+	        }
+	        System.out.println();
+	    }
+	}
+	   
+	boolean canVisit(int y, int x)  {
+	    if (y < 0 || y >= myRow || x < 0 || x >= myRow)  {
+	        return false;
+	    }
+	    return true;
+	}
+	
+	public String getImgTitle(int y, int x)  {
+	    if (canVisit(y, x))  {
+System.out.println("getImgTitle(" + y + ", " + x + ") = " + 
+board[y][x]);
+	        return board[y][x];
+	    }
+	    return null;
 	}
 	
 	void readFile(String level){
@@ -35,19 +71,19 @@ public class PacmanModel {
 			while(input.hasNext()){
 				String curr = input.next();
 				if(curr.charAt(0) == '['){
-					board[iBoard][jBoard] = curr.substring(1);
-					if(jBoard<myCol-1){
+					// board[iBoard][jBoard] = curr.substring(1);
+					if(jBoard< myCol - 1) {
 						jBoard++;
 					}else{
 						iBoard++;
 						jBoard = 0;
 					}
 				}
-				if(curr.charAt(curr.length()-1)== ']'){
-					walkable[iWalkable][jWalkable] = curr.substring(0, curr.length()-1);
-					if(jWalkable<myCol-1){
+				if(curr.charAt(curr.length() - 1)== ']'){
+					walkable[iWalkable][jWalkable] = curr.substring(0, curr.length() - 1);
+					if(jWalkable < myCol - 1){
 						jWalkable++;
-					}else{
+					} else{
 						iWalkable++;
 						jWalkable = 0;
 					}
@@ -57,8 +93,6 @@ public class PacmanModel {
 			System.out.println(e.getMessage());
 			System.exit(0);
 		}
-		
-		
 	}
 	
 	void eatFood(int row, int col){
@@ -70,5 +104,4 @@ public class PacmanModel {
 			return true;
 		return false;
 	}
-	
 }

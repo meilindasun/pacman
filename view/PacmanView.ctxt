@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=c\ m
+comment0.target=PacmanView(controller.PacmanController,\ model.PacmanModel)
+comment1.params=m
+comment1.target=void\ addCustomMouseListener(java.awt.event.MouseListener)
+comment2.params=l
+comment2.target=void\ addCustomKeyListener(java.awt.event.KeyListener)
+comment3.params=
+comment3.target=void\ updateView()
+comment4.params=y\ x
+comment4.target=java.awt.image.BufferedImage\ getCellContents(int,\ int)
+comment5.params=picName
+comment5.target=java.awt.image.BufferedImage\ imageLoad(java.lang.String)
+comment6.params=
+comment6.target=void\ fillHashMap()
+numComments=7

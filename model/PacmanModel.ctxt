@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=level\ row\ col
+comment0.target=PacmanModel(java.lang.String,\ int,\ int)
+comment1.params=
+comment1.target=void\ setAllBlank()
+comment2.params=
+comment2.target=void\ printBoard()
+comment3.params=y\ x
+comment3.target=boolean\ canVisit(int,\ int)
+comment4.params=y\ x
+comment4.target=java.lang.String\ getImgTitle(int,\ int)
+comment5.params=level
+comment5.target=void\ readFile(java.lang.String)
+comment6.params=row\ col
+comment6.target=void\ eatFood(int,\ int)
+comment7.params=row\ col
+comment7.target=boolean\ walkable(int,\ int)
+numComments=8
