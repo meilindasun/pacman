@@ -70,5 +70,13 @@ public class PacmanModel {
 			return true;
 		return false;
 	}
-	
+
+	String[][] getBoard(){
+		return board;
+	}
+
+	String cellContent(int row, int col){
+		return board[row][col];
+	}
+
 }
